@@ -1,0 +1,119 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><!-- InstanceBegin template="/Templates/pages.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>OceanSITES : Data Links</title>
+<meta name="description" content="The OceanSITES data managment team has developed an implementation of NetCDF for the data sets. " />
+<!-- InstanceEndEditable -->
+<link href="../oceansites.css" rel="stylesheet" type="text/css" />
+<!-- InstanceBeginEditable name="head" --><!-- InstanceEndEditable -->
+            <script src="http://ajax.googleapis.com/ajax/libs/dojo/1.6.0/dojo/dojo.xd.js"
+				data-dojo-config="isDebug: true,parseOnLoad: true">
+  </script>
+            <script>
+
+    // Function that refreshes the SPAN node
+    function refreshContent() {
+      var searchTerms = [];
+      var themeTerms = [];
+      var restParams = "/geoportal/rest/find/document?searchText=" + encodeURIComponent('sys.siteuuid:"{AA1A0C97-BE14-4D83-B3BF-D445B87558E8}"');
+      if (dojo.byId("userterm").value!="") {
+        //alert("Pushing userterm: " + dojo.byId("userterm").value);
+				  searchTerms.push(dojo.byId("userterm").value);
+				}
+
+				if (dojo.byId("sws").checked) {
+				  themeTerms.push("keywords: " + dojo.byId("sws").value);
+				}
+				if (dojo.byId("swt").checked) {
+				  themeTerms.push("keywords: " + dojo.byId("swt").value);
+				}
+				if (dojo.byId("swp").checked) {
+				  themeTerms.push("keywords: " + dojo.byId("swp").value);
+				}
+				if (dojo.byId("swv").checked) {
+				  themeTerms.push("keywords: " + dojo.byId("swv").value);
+				}
+				//moorings
+				if (dojo.byId("surfm").checked) {
+				  searchTerms.push(dojo.byId("surfm").value);
+				}
+				if (dojo.byId("seafm").checked) {
+				  searchTerms.push(dojo.byId("seafm").value);
+				}
+
+				if(searchTerms.length > 0) {
+				    restParams += " AND " + encodeURIComponent(searchTerms.join(' AND '));
+				    if(themeTerms.length > 0)
+				      restParams += " AND " + encodeURIComponent(themeTerms.join(' OR '));
+				}
+				restParams += "&f=htmlfragment&start=1&max=300&showRelativeUrl=true";
+
+			    //alert(restParams);
+			    // Using dojo.xhrGet, as very little information is being sent
+			    dojo.xhrGet({
+					// The URL of the request
+					url: restParams,
+					// The success callback with result from server
+					load: function(newContent) {
+						dojo.byId("gptContainer").innerHTML = newContent;
+					},
+					// The error handler
+					error: function() {
+						// Do nothing -- keep old content there
+					},
+					// generate an extra GET variable to prevent browsers from caching
+					preventCache: true
+				});
+			}
+
+			// When the DOM is ready....
+			dojo.ready(function(){
+				// Populate content initially
+				//refreshContent();
+				// Connect button
+				dojo.connect(dojo.byId("refreshButton"),"onclick",refreshContent);
+			});
+		</script>
+    </head>
+    <BODY bgcolor="#ffffff;">
+
+        <h1 class="main-head">OceanSITES Data Discovery</h1>
+        <h2 class="main-subhead">Find Data and Services</h2>
+        <p>Enter a Search Term:</p><input type="text" name="term" id="userterm"/>
+
+        <h2 class="main-subhead">Observations</h2>
+        <table>
+            <tr>
+                <td><input type="checkbox" id="sws" value="sea_water_salinity"> Sea Water Salinity</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" id="swt" value="sea_water_temperature"> Sea Water Temperature</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" id="swp" value="sea_water_pressue"> Sea Water Pressure</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" id="swv" value="sea_water_velocity"> Sea Water Velocity</td>
+            </tr>
+        </table>
+        <h2 class="main-subhead">Moorings</h2>
+        <table>
+            <tr>
+                <td><input type="checkbox" id="surfm" value="surface"> Surface</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" id="seafm" value="seafloor"> Seafloor</td>
+            </tr>
+        </table>
+        <br/>
+        <button id="refreshButton">Search</button>
+        <h1 class="main-head">&nbsp;</h1>
+        <div id="gptContainer" style="height: 400px; width: 600px; overflow:auto">
+
+
+
+        </div>
+        </body>
+</html>

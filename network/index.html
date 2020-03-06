@@ -1,0 +1,116 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><!-- InstanceBegin template="/Templates/pages.dwt" codeOutsideHTMLIsLocked="false" -->
+<link rel="shortcut icon" href="../images/favicon.jpg"/>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>OceanSITES : Global Networks</title>
+<!-- InstanceEndEditable -->
+<link href="../oceansites.css" rel="stylesheet" type="text/css" />
+<!-- InstanceBeginEditable name="head" -->
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+<script type="text/javascript">
+/*function initialize() {
+  var myLatlng = new google.maps.LatLng(2,-150);
+  var mapOptions = {
+    zoom: 1,
+    center: myLatlng,
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+  }
+
+  var map = new google.maps.Map(document.getElementById('oceansites-map'), mapOptions);
+
+  var oceansitesLayer = new google.maps.KmlLayer({
+    url: 'http://www.jcommops.org/FTPRoot/OceanSITES/status/oceansites_locations.kmz'
+	});
+  oceansitesLayer.setMap(map);
+  oceansitesLayer.set('preserveViewport', true); 
+}*/
+
+google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+
+<style type="text/css">
+<!--
+.style1 {
+	font-size: 0.8em
+}
+.style4 {font-size: 0.85em}
+-->
+</style>
+<!-- InstanceEndEditable -->
+</head>
+
+<body>
+<div align="center"><table width="950" height="100%" border="0" cellpadding="0" cellspacing="0">
+<tr>
+<td colspan="2" bgcolor="#FFFFFF"><a href="../index.html"><img src="../images/banner.jpg" alt="OceanSITES banner" width="950" height="90" border="0" /></a></td>
+</tr>
+
+<tr>
+<td colspan="2" bgcolor="#FFFFFF" class="gradient"></td>
+</tr>
+<!-- InstanceBeginEditable name="nav-main" -->
+<tr>
+<td  valign="top" bgcolor="#FFFFFF" class="cellpadding"><p class="nav"><a href="../index.html">Home</a></p>
+<p class="nav"><a href="../about.html">About</a></p>
+<p class="nav"><a href="../tma/index.html">Products</a></p>
+<p class="nav"><a href="../data/index.html">Data</a></p>
+<p class="nav-on"><a href="index.html">Maps</a></p>
+<!--p class="nav"><a href="../team/index.html">Global Team</a></p-->
+<p class="nav"><a href="../meetings/index.html">Meetings</a></p>
+<p class="nav"><a href="../news/index.html">News</a></p>
+<p class="nav"><a href="../documents/index.html">Documents</a></p>
+<p class="nav"><a href="../publications/index.html">Publications</a></p>
+<p class="nav"><a href="../links/index.html">Links</a></p>
+<p class="nav"><a href="../contact.html">Contact</a></p>
+<p class="nav-sub">&nbsp;</p>
+<p class="nav-sub"><a href="http://www.oceansites.org"><img src="../images/logo.gif" alt="OceanSITES logo" width="150" height="97" border="0" /></a></p>
+
+<p class="nav"></p>
+<p class="nav">&nbsp; </p></td>
+<td width="77%" valign="top" bgcolor="#FFFFFF" class="cellpadding-main"><h1 class="main-head">OceanSITES Current Global Time-series</h1>
+  <p><div id="oceansites-map" style="width: 640px; height: 480px;"><iframe src="https://www.google.com/maps/d/embed?mid=1uotZuxbspi6TZnBhiqWJKbYKVtOOQ3Zp" width="640" height="480"></iframe></div></p>
+  <br><br>
+  	
+  <p>Different types of Maps of the system can be explored and downloaded on this page:</p>
+  <ul>
+  <li>Latest map at (via JCOMMOPS) <a href="https://www.jcommops.org/ftp/OceanSITES/Maps/OS_STATUS.png">PNG</a> | <a href="https://www.jcommops.org/ftp/OceanSITES/Maps/OS_STATUS.pdf">PDF</a></li>
+  <li>Create and filter own map at JCOMMOPS <a href="https://www.jcommops.org/board/?t=OceanSITES">https://www.jcommops.org/board/?t=OceanSITES</a></li>
+  <li>Static map with come sites information (status Nov 2019)</li>
+  <li>Google Map Window: <a href="https://www.google.com/maps/d/u/0/edit?mid=1uotZuxbspi6TZnBhiqWJKbYKVtOOQ3Zp&ll=2.541537406154468%2C0&z=2" target="_blank">Large Map</a></li>
+  </ul>
+
+<div align="left">
+  <p>&nbsp;</p>
+</div></td>
+</tr>
+<!-- InstanceEndEditable -->
+<tr>
+<td  valign="top" bgcolor="#FFFFFF" class="cellpadding">&nbsp;</td>
+<td valign="top" bgcolor="#FFFFFF" class="cellpadding-main">
+<p><img src="../images/logo-notype.jpg" alt="OceanSITES logo" width="50" height="42" class="image" /> <span class="caption">&copy; <span id="year"></span>. OceanSITES. All rights reserved.<br /> 
+For questions or comments, please contact <a href="mailto:projectoffice@oceansites.org">projectoffice@oceansites.org</a></span></p>
+</td>
+</tr>
+
+</table>
+</div>
+<!-- **********************************-->
+<!-- *** Code for Google Analytics ***-->
+<!-- **********************************-->
+<script type="text/javascript">
+document.getElementById("year").innerHTML = new Date().getFullYear();
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-3558742-1");
+pageTracker._initData();
+pageTracker._trackPageview();
+</script>
+<!-- ********************************-->
+<!-- End of Code for Google Analytics-->
+<!-- ********************************-->
+</body>
+<!-- InstanceEnd --></html>
